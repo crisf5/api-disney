@@ -11,6 +11,8 @@ import java.util.List;
 @Setter
 public class CharacterDTO {
 
+    private Long id;
+
     private String image;
 
     private String name;
