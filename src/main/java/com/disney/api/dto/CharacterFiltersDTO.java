@@ -10,7 +10,6 @@ import java.util.List;
 
 @Getter
 @Setter
-@AllArgsConstructor
 public class CharacterFiltersDTO {
 
     private String name;
