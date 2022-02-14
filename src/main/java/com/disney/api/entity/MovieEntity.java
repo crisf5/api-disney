@@ -22,7 +22,6 @@ public class MovieEntity {
     private Long id;
 
     private String image;
-
     private String title;
 
     @DateTimeFormat(pattern = "yyyy/MM/dd")

@@ -13,17 +13,10 @@ import java.util.List;
 public class MovieDTO {
 
     private Long id;
-
     private String image;
-
     private String title;
-
     private LocalDate creatAt;
-
     private Integer rating;
-
     private Long genreId;
-
     private List<CharacterDTO> characters = new ArrayList<>();
-
 }

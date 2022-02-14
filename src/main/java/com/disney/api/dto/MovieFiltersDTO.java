@@ -10,17 +10,10 @@ import lombok.Setter;
 public class MovieFiltersDTO {
 
     private String title;
-    // TODO: 09/02/2022 Long or String? 
     private Long idGenre;
-
     private String order;
 
-//    public MovieFiltersDTO(String title, Long idGenre, String order){
-//        this.title = title;
-//        this.idGenre = idGenre;
-//        this.order = order;
-//    }
-
+    // TODO: 14/02/2022 Verificarlos
     public boolean isASC(){
         return this.order.compareToIgnoreCase("ASC") == 0;
     }

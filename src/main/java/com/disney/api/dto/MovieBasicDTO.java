@@ -10,9 +10,6 @@ import java.time.LocalDate;
 public class MovieBasicDTO {
 
     private String image;
-
     private String title;
-
     private LocalDate creatAt;
-
 }

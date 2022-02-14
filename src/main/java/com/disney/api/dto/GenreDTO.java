@@ -8,8 +8,6 @@ import lombok.Setter;
 public class GenreDTO {
 
     private Long id;
-
     private String name;
-
     private String image;
 }

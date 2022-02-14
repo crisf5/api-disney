@@ -42,15 +42,12 @@ public class CharacterMapper {
         entity.setWeight(dto.getWeight());
         entity.setHistory(dto.getHistory());
         return entity;
-
     }
 
-    //Probando!
 
     public CharacterDTO CharacterEntity2DTO(CharacterEntity entity, boolean loadMovies){
 
         CharacterDTO dto = new CharacterDTO();
-
         dto.setId(entity.getId());
         dto.setImage(entity.getImage());
         dto.setName(entity.getName());
@@ -64,7 +61,6 @@ public class CharacterMapper {
         }
 
         return dto;
-
     }
 
     public List<CharacterDTO> characterEntityList2DTOList(List<CharacterEntity> entities, boolean loadMovies){
@@ -76,7 +72,15 @@ public class CharacterMapper {
         }
 
         return dtos;
+    }
 
+    public void characterEntityRefreshValues(CharacterEntity entity, CharacterDTO dto) {
+
+        entity.setImage(dto.getImage());
+        entity.setName(dto.getName());
+        entity.setAge(dto.getAge());
+        entity.setWeight(dto.getWeight());
+        entity.setHistory(dto.getHistory());
     }
 
 }

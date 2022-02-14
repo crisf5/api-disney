@@ -9,7 +9,12 @@ public interface CharacterService {
 
     List<CharacterBasicDTO> getAllCharactersBasic();
 
-    CharacterDTO save(CharacterDTO dto);
+    CharacterDTO create(CharacterDTO dto);
 
+    CharacterDTO update(CharacterDTO dto, Long id);
+
+    void delete(Long id);
+
+    CharacterDTO findCharacterById(Long id);
 
 }

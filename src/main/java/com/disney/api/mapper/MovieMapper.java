@@ -25,7 +25,6 @@ public class MovieMapper {
         }
 
         return dtos;
-
     }
 
     public MovieDTO movieEntity2DTO(MovieEntity entity, boolean loadCharacters){
