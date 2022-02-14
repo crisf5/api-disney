@@ -8,7 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -47,10 +46,20 @@ public class CharacterController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<CharacterDTO> getCharacterById(@Valid @PathVariable Long id){
+    public ResponseEntity<CharacterDTO> getCharacterById(@PathVariable Long id){
 
         CharacterDTO characterDetails = characterService.findCharacterById(id);
         return ResponseEntity.ok().body(characterDetails);
+    }
+
+    @GetMapping("/params")
+    public ResponseEntity<List<CharacterDTO>> getCharactersByFilteres(
+            @RequestParam (required = false) String name,
+            @RequestParam (required = false) Integer age,
+            @RequestParam (required = false) List<Long> movies
+    ){
+        List<CharacterDTO> characterDTOS = characterService.getCharactersByFilters(name, age, movies);
+        return ResponseEntity.ok(characterDTOS);
     }
 
 

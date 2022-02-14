@@ -1,11 +1,9 @@
 package com.disney.api.dto;
 
-import com.disney.api.entity.CharacterEntity;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -18,5 +16,5 @@ public class MovieDTO {
     private LocalDate creatAt;
     private Integer rating;
     private Long genreId;
-    private List<CharacterDTO> characters = new ArrayList<>();
+    private List<CharacterDTO> characters;
 }

@@ -2,7 +2,6 @@ package com.disney.api.mapper;
 
 import com.disney.api.dto.CharacterDTO;
 import com.disney.api.dto.MovieDTO;
-import com.disney.api.entity.CharacterEntity;
 import com.disney.api.entity.MovieEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

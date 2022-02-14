@@ -17,4 +17,6 @@ public interface CharacterService {
 
     CharacterDTO findCharacterById(Long id);
 
+    List<CharacterDTO> getCharactersByFilters(String name, Integer age, List<Long> movies);
+
 }

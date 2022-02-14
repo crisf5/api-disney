@@ -2,10 +2,12 @@ package com.disney.api.service.impl;
 
 import com.disney.api.dto.CharacterBasicDTO;
 import com.disney.api.dto.CharacterDTO;
+import com.disney.api.dto.CharacterFiltersDTO;
 import com.disney.api.entity.CharacterEntity;
 import com.disney.api.exception.ParamNotFound;
 import com.disney.api.mapper.CharacterMapper;
 import com.disney.api.repository.CharacterRepository;
+import com.disney.api.repository.specification.CharacterSpecification;
 import com.disney.api.service.CharacterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,6 +23,9 @@ public class CharacterServiceImpl implements CharacterService {
 
     @Autowired
     private CharacterMapper characterMapper;
+
+    @Autowired
+    private CharacterSpecification characterSpecification;
 
     @Override
     public List<CharacterBasicDTO> getAllCharactersBasic() {
@@ -70,6 +75,14 @@ public class CharacterServiceImpl implements CharacterService {
         }
         CharacterDTO result = characterMapper.CharacterEntity2DTO(entity.get(), true);
         return result;
+    }
+
+    @Override
+    public List<CharacterDTO> getCharactersByFilters(String name, Integer age, List<Long> movies) {
+
+        CharacterFiltersDTO characterDTO = new CharacterFiltersDTO(name, age, movies);
+        List<CharacterEntity> entities = characterRepository.findAll(characterSpecification.getByFilters(characterDTO));
+        return characterMapper.characterEntityList2DTOList(entities, true);
     }
 
 
