@@ -9,7 +9,7 @@ public interface CharacterService {
 
     List<CharacterBasicDTO> getAllCharactersBasic();
 
-
+    CharacterDTO save(CharacterDTO dto);
 
 
 }

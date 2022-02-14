@@ -5,8 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -24,6 +24,6 @@ public class MovieDTO {
 
     private Long genreId;
 
-    private Set<CharacterEntity> characters = new HashSet<>();
+    private List<CharacterDTO> characters = new ArrayList<>();
 
 }

@@ -23,6 +23,6 @@ public class CharacterDTO {
 
     private String history;
 
-    private List<MovieEntity> movies = new ArrayList<>();
+    private List<MovieDTO> movies = new ArrayList<>();
 
 }
