@@ -1,11 +1,11 @@
 package com.disney.api.mapper;
 
+import com.disney.api.dto.CharacterBasicDTO;
 import com.disney.api.dto.CharacterDTO;
 import com.disney.api.entity.CharacterEntity;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Component
 public class CharacterMapper {
@@ -55,6 +55,25 @@ public class CharacterMapper {
 
         for (CharacterEntity entity : entities){
             dtos.add(characterEntity2DTO(entity));
+        }
+
+        return dtos;
+
+    }
+
+
+    //List characters basic
+    public List<CharacterBasicDTO> characterEntityList2DTOBasic(List<CharacterEntity> entities){
+
+        List<CharacterBasicDTO> dtos = new ArrayList<>();
+        CharacterBasicDTO basicDTO;
+
+        for (CharacterEntity entity : entities){
+            basicDTO = new CharacterBasicDTO();
+            basicDTO.setImage(entity.getImage());
+            basicDTO.setName(entity.getName());
+            dtos.add(basicDTO);
+
         }
 
         return dtos;
