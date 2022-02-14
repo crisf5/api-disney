@@ -22,6 +22,8 @@ public class MovieDTO {
 
     private Integer rating;
 
+    private Long genreId;
+
     private Set<CharacterEntity> characters = new HashSet<>();
 
 }

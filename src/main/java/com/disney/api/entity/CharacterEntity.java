@@ -2,7 +2,6 @@ package com.disney.api.entity;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.validator.constraints.Mod11Check;
 
 import javax.persistence.*;
 import java.util.ArrayList;

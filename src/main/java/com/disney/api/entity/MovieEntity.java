@@ -47,6 +47,6 @@ public class MovieEntity {
     private GenreEntity genre;
 
     @Column(name = "genre_id", nullable = false)
-    private Long genre_id;
+    private Long genreId;
 
 }

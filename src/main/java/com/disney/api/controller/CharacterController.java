@@ -18,10 +18,11 @@ public class CharacterController {
     private CharacterService characterService;
 
     @GetMapping
-    public ResponseEntity<List<CharacterBasicDTO>> getCharacterBasicList(CharacterBasicDTO character){
+    public ResponseEntity<List<CharacterBasicDTO>> getCharacterBasicList(){
 
         List<CharacterBasicDTO> characterBasicDTOList = characterService.getAllCharactersBasic();
         return ResponseEntity.ok(characterBasicDTOList);
     }
+
 
 }

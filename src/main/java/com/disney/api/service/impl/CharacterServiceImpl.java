@@ -27,4 +27,6 @@ public class CharacterServiceImpl implements CharacterService {
         return result;
 
     }
+
+
 }
