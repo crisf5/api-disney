@@ -15,25 +15,24 @@ public class CharacterMapper {
     @Autowired
     private MovieMapper movieMapper;
 
-    public List<CharacterBasicDTO> characterEntityList2DTOBasic(List<CharacterEntity> entities){
+
+    public List<CharacterBasicDTO> characterEntityList2DTOBasicList(List<CharacterEntity> entities){
 
         List<CharacterBasicDTO> dtos = new ArrayList<>();
-        CharacterBasicDTO basicDTO;
+        CharacterBasicDTO characterBasicDTO;
 
         for (CharacterEntity entity : entities){
-            basicDTO = new CharacterBasicDTO();
-            basicDTO.setImage(entity.getImage());
-            basicDTO.setName(entity.getName());
-            dtos.add(basicDTO);
-
+            characterBasicDTO = new CharacterBasicDTO();
+            characterBasicDTO.setImage(entity.getImage());
+            characterBasicDTO.setName(entity.getName());
+            dtos.add(characterBasicDTO);
         }
 
         return dtos;
-
     }
 
 
-    public CharacterEntity CharacterDTO2Entity(CharacterDTO dto){
+    public CharacterEntity characterDTO2Entity(CharacterDTO dto){
 
         CharacterEntity entity = new CharacterEntity();
         entity.setImage(dto.getImage());
@@ -45,7 +44,7 @@ public class CharacterMapper {
     }
 
 
-    public CharacterDTO CharacterEntity2DTO(CharacterEntity entity, boolean loadMovies){
+    public CharacterDTO characterEntity2DTO(CharacterEntity entity, boolean loadMovies){
 
         CharacterDTO dto = new CharacterDTO();
         dto.setId(entity.getId());
@@ -68,7 +67,7 @@ public class CharacterMapper {
         List<CharacterDTO> dtos = new ArrayList<>();
 
         for (CharacterEntity entity : entities){
-            dtos.add(CharacterEntity2DTO(entity, loadMovies));
+            dtos.add(characterEntity2DTO(entity, loadMovies));
         }
 
         return dtos;

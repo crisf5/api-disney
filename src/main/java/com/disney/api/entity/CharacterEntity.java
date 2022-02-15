@@ -22,13 +22,9 @@ public class CharacterEntity {
     private Long id;
 
     private String image;
-
     private String name;
-
     private Integer age;
-
     private Integer weight;
-
     private String history;
 
     @ManyToMany(mappedBy = "characters", cascade = CascadeType.ALL)

@@ -41,7 +41,7 @@ public class MovieEntity {
             inverseJoinColumns = @JoinColumn(name = "character_id"))
     private List<CharacterEntity> characters = new ArrayList<>();
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "genre_id", insertable = false, updatable = false)
     private GenreEntity genre;
 

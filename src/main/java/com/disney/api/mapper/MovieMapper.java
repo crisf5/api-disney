@@ -1,6 +1,7 @@
 package com.disney.api.mapper;
 
 import com.disney.api.dto.CharacterDTO;
+import com.disney.api.dto.MovieBasicDTO;
 import com.disney.api.dto.MovieDTO;
 import com.disney.api.entity.MovieEntity;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +43,22 @@ public class MovieMapper {
         }
 
         return dto;
+    }
+
+    public List<MovieBasicDTO> movieEntityList2DTOBasicList(List<MovieEntity> entities){
+
+        List<MovieBasicDTO> dtos = new ArrayList<>();
+        MovieBasicDTO movieBasicDTO;
+
+        for(MovieEntity entity : entities){
+            movieBasicDTO = new MovieBasicDTO();
+            movieBasicDTO.setImage(entity.getImage());
+            movieBasicDTO.setTitle(entity.getTitle());
+            movieBasicDTO.setCreatAt(entity.getCreatAt());
+            dtos.add(movieBasicDTO);
+        }
+
+        return dtos;
     }
 
 }
