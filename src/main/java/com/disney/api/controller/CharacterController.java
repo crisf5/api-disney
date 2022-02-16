@@ -53,13 +53,13 @@ public class CharacterController {
         return ResponseEntity.ok().body(characterDetails);
     }
 
-    @GetMapping("?")
+    @GetMapping("/characters")
     public ResponseEntity<List<CharacterDTO>> getCharactersByFilters(
             @RequestParam (required = false) String name,
             @RequestParam (required = false) Integer age,
             @RequestParam (required = false) List<Long> movies
     ){
-        List<CharacterDTO> characterFilters = characterService.getCharactersByFilters(name, age, movies);
+        List<CharacterDTO> characterFilters = characterService.findCharactersByFilters(name, age, movies);
         return ResponseEntity.ok(characterFilters);
     }
 

@@ -11,7 +11,7 @@ import lombok.Setter;
 public class MovieFiltersDTO {
 
     private String title;
-    private Long idGenre;
+    private Long IdGenre;
     private String order;
 
     public boolean isAsc(){return order.compareToIgnoreCase("ASC") == 0;}
