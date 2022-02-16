@@ -28,7 +28,7 @@ public class CharacterServiceImpl implements CharacterService {
     private CharacterSpecification characterSpecification;
 
     @Override
-    public List<CharacterBasicDTO> getAllCharactersBasic() {
+    public List<CharacterBasicDTO> getCharactersBasic() {
 
         List<CharacterEntity> entities = characterRepository.findAll();
         List<CharacterBasicDTO> result = characterMapper.characterEntityList2DTOBasicList(entities);
@@ -49,7 +49,7 @@ public class CharacterServiceImpl implements CharacterService {
 
         Optional<CharacterEntity> entity = characterRepository.findById(id);
         if(!entity.isPresent()){
-            throw new ParamNotFound("Character ID is not Valid");
+            throw new ParamNotFound("Character ID is not Found.");
         }
         characterMapper.characterEntityRefreshValues(entity.get(), dto);
         CharacterEntity entitySaved = characterRepository.save(entity.get());
@@ -61,7 +61,7 @@ public class CharacterServiceImpl implements CharacterService {
     public void delete(Long id){
         Optional<CharacterEntity> entity = characterRepository.findById(id);
         if(!entity.isPresent()){
-            throw new ParamNotFound("Character ID is not Valid");
+            throw new ParamNotFound("Character ID is not Found.");
         }
         characterRepository.deleteById(id);
     }
@@ -70,7 +70,7 @@ public class CharacterServiceImpl implements CharacterService {
     public CharacterDTO findCharacterById(Long id) {
         Optional<CharacterEntity> entity = characterRepository.findById(id);
         if(!entity.isPresent()){
-            throw new ParamNotFound("Character ID is not Valid");
+            throw new ParamNotFound("Character ID is not Found.");
         }
         CharacterDTO result = characterMapper.characterEntity2DTO(entity.get(), true);
         return result;
@@ -81,7 +81,8 @@ public class CharacterServiceImpl implements CharacterService {
 
         CharacterFiltersDTO characterDTO = new CharacterFiltersDTO(name, age, movies);
         List<CharacterEntity> entities = characterRepository.findAll(characterSpecification.getByFilters(characterDTO));
-        return characterMapper.characterEntityList2DTOList(entities, true);
+        List<CharacterDTO> result = characterMapper.characterEntityList2DTOList(entities, true);
+        return result;
     }
 
 

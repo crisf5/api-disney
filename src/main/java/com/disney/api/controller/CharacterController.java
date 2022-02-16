@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -20,12 +21,12 @@ public class CharacterController {
     @GetMapping
     public ResponseEntity<List<CharacterBasicDTO>> getCharacterBasicList(){
 
-        List<CharacterBasicDTO> characterBasicDTOList = characterService.getAllCharactersBasic();
-        return ResponseEntity.ok(characterBasicDTOList);
+        List<CharacterBasicDTO> characterBasicDTOS = characterService.getCharactersBasic();
+        return ResponseEntity.ok(characterBasicDTOS);
     }
 
     @PostMapping
-    public ResponseEntity<CharacterDTO> createCharacter(@RequestBody CharacterDTO characterDTO){
+    public ResponseEntity<CharacterDTO> createCharacter(@Valid @RequestBody CharacterDTO characterDTO){
 
         CharacterDTO characterSaved = characterService.create(characterDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(characterSaved);
@@ -52,14 +53,14 @@ public class CharacterController {
         return ResponseEntity.ok().body(characterDetails);
     }
 
-    @GetMapping("/params")
-    public ResponseEntity<List<CharacterDTO>> getCharactersByFilteres(
+    @GetMapping("?")
+    public ResponseEntity<List<CharacterDTO>> getCharactersByFilters(
             @RequestParam (required = false) String name,
             @RequestParam (required = false) Integer age,
             @RequestParam (required = false) List<Long> movies
     ){
-        List<CharacterDTO> characterDTOS = characterService.getCharactersByFilters(name, age, movies);
-        return ResponseEntity.ok(characterDTOS);
+        List<CharacterDTO> characterFilters = characterService.getCharactersByFilters(name, age, movies);
+        return ResponseEntity.ok(characterFilters);
     }
 
 

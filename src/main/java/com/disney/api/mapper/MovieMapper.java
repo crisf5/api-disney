@@ -85,4 +85,13 @@ public class MovieMapper {
         return LocalDate.parse(date, dateTimeFormatter);
     }
 
+    public void movieEntityRefreshValues(MovieEntity entity, MovieDTO dto) {
+
+        entity.setImage(dto.getImage());
+        entity.setTitle(dto.getTitle());
+        entity.setCreatAt(string2LocalDate(dto.getCreatAt()));
+        entity.setRating(dto.getRating());
+        entity.setGenreId(dto.getGenreId());
+    }
+
 }

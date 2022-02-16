@@ -8,10 +8,18 @@ import java.util.List;
 
 public interface MovieService {
 
-    List<MovieBasicDTO> getAllMoviesBasic();
+    List<MovieBasicDTO> getMoviesBasic();
 
     MovieDTO findMovieById(Long id);
 
     MovieDTO create(MovieDTO movieDTO);
 
+    MovieDTO update(MovieDTO movieDTO, Long id);
+
+    void delete(Long id);
+
+    List<MovieDTO> findMoviesByFilters(String title, Long genreId, String order);
+
+
 }
+

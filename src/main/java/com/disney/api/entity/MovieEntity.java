@@ -3,12 +3,11 @@ package com.disney.api.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +16,8 @@ import java.util.List;
 @Table(name = "movies")
 @Getter
 @Setter
+@SQLDelete(sql = "UPDATE movies SET deleted = true WHERE id=?")
+@Where(clause = "deleted=false")
 public class MovieEntity {
 
     @Id
@@ -30,7 +31,6 @@ public class MovieEntity {
     @Column(name = "creation_date")
     private LocalDate creatAt;
 
-    @Min(1) @Max(5)
     private Integer rating;
 
     @ManyToMany(
@@ -48,5 +48,7 @@ public class MovieEntity {
 
     @Column(name = "genre_id", nullable = false)
     private Long genreId;
+
+    private boolean deleted = Boolean.FALSE;
 
 }

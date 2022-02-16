@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface CharacterService {
 
-    List<CharacterBasicDTO> getAllCharactersBasic();
+    List<CharacterBasicDTO> getCharactersBasic();
 
     CharacterDTO create(CharacterDTO dto);
 

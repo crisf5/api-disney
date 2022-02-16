@@ -2,6 +2,7 @@ package com.disney.api.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
@@ -13,13 +14,8 @@ public class MovieFiltersDTO {
     private Long idGenre;
     private String order;
 
-    // TODO: 14/02/2022 Verificarlos
-    public boolean isASC(){
-        return this.order.compareToIgnoreCase("ASC") == 0;
-    }
+    public boolean isAsc(){return order.compareToIgnoreCase("ASC") == 0;}
 
-    public boolean isDESC(){
-        return this.order.compareToIgnoreCase("DESC") == 0;
-    }
+    public boolean isDesc(){return order.compareToIgnoreCase("DESC") == 0;}
 
 }
