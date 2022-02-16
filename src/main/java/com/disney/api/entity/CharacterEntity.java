@@ -27,7 +27,10 @@ public class CharacterEntity {
     private Integer weight;
     private String history;
 
-    @ManyToMany(mappedBy = "characters", cascade = CascadeType.ALL)
+    @ManyToMany(
+            mappedBy = "characters",
+            fetch = FetchType.LAZY,
+            cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     private List<MovieEntity> movies = new ArrayList<>();
 
     private boolean deleted = Boolean.FALSE;

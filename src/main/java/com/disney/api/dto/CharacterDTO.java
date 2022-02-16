@@ -1,10 +1,8 @@
 package com.disney.api.dto;
 
-import com.disney.api.entity.MovieEntity;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -17,5 +15,5 @@ public class CharacterDTO {
     private Integer age;
     private Integer weight;
     private String history;
-    private List<MovieDTO> movies = new ArrayList<>();
+    private List<MovieDTO> movies;
 }

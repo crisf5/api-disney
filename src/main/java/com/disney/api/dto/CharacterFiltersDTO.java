@@ -14,6 +14,4 @@ public class CharacterFiltersDTO {
     private String name;
     private Integer age;
     private List<Long> movies;
-
-    // TODO: 14/02/2022 Es Long en vez de MovieDTO!
 }

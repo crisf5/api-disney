@@ -3,10 +3,13 @@ package com.disney.api.mapper;
 import com.disney.api.dto.CharacterDTO;
 import com.disney.api.dto.MovieBasicDTO;
 import com.disney.api.dto.MovieDTO;
+import com.disney.api.entity.CharacterEntity;
 import com.disney.api.entity.MovieEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,7 +36,7 @@ public class MovieMapper {
         dto.setId(entity.getId());
         dto.setImage(entity.getImage());
         dto.setTitle(entity.getTitle());
-        dto.setCreatAt(entity.getCreatAt());
+        dto.setCreatAt(entity.getCreatAt().toString());
         dto.setRating(entity.getRating());
         dto.setGenreId(entity.getGenreId());
 
@@ -59,6 +62,27 @@ public class MovieMapper {
         }
 
         return dtos;
+    }
+
+    // TODO: 15/02/2022 Probando, Revisar los Create!!
+    public MovieEntity movieDTO2Entity(MovieDTO dto){
+
+        MovieEntity entity = new MovieEntity();
+        entity.setImage(dto.getImage());
+        entity.setTitle(dto.getTitle());
+        entity.setCreatAt(string2LocalDate(dto.getCreatAt()));
+        entity.setRating(dto.getRating());
+        entity.setGenreId(dto.getGenreId());
+
+//        List<CharacterEntity> characters = characterMapper.characterDTOList2EntityList(dto.getCharacters());
+//        entity.setCharacters(characters);
+
+        return entity;
+    }
+
+    private LocalDate string2LocalDate(String date) {
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        return LocalDate.parse(date, dateTimeFormatter);
     }
 
 }

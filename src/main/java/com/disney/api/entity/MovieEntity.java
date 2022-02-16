@@ -6,6 +6,8 @@ import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -28,13 +30,12 @@ public class MovieEntity {
     @Column(name = "creation_date")
     private LocalDate creatAt;
 
-    @Size(min = 1, max = 5)
+    @Min(1) @Max(5)
     private Integer rating;
 
     @ManyToMany(
-            cascade = {CascadeType.PERSIST,
-                    CascadeType.MERGE}
-    )
+            fetch = FetchType.LAZY,
+            cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
             name = "character_movie",
             joinColumns = @JoinColumn(name = "movie_id"),

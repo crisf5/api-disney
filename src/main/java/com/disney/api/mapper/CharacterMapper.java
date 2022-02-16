@@ -82,4 +82,17 @@ public class CharacterMapper {
         entity.setHistory(dto.getHistory());
     }
 
+    // TODO: 15/02/2022 Continua MovieMapper
+    public List<CharacterEntity> characterDTOList2EntityList(List<CharacterDTO> dtos) {
+
+        List<CharacterEntity> entities = new ArrayList<>();
+
+        for (CharacterDTO dto : dtos) {
+            entities.add(characterDTO2Entity(dto));
+        }
+
+        return entities;
+    }
+
+
 }
