@@ -35,11 +35,11 @@ public class CharacterSpecification {
 
             }
 
-            if (!CollectionUtils.isEmpty(filtersDTO.getMovies())) {
+            if (!CollectionUtils.isEmpty(filtersDTO.getIdMovies())) {
 
                 Join<CharacterEntity, MovieEntity> join = root.join("movies", JoinType.INNER);
                 Expression<String> moviesId = join.get("id");
-                predicates.add(moviesId.in(filtersDTO.getMovies()));
+                predicates.add(moviesId.in(filtersDTO.getIdMovies()));
             }
 
             query.distinct(true);

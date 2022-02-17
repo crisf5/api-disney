@@ -13,5 +13,5 @@ public class CharacterFiltersDTO {
 
     private String name;
     private Integer age;
-    private List<Long> movies;
+    private List<Long> idMovies;
 }

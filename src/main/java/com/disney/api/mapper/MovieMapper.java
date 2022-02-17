@@ -64,7 +64,7 @@ public class MovieMapper {
         return dtos;
     }
 
-    // TODO: 15/02/2022 Probando, Revisar los Create!!
+    // TODO: 15/02/2022 Probando, Revisar Create!
     public MovieEntity movieDTO2Entity(MovieDTO dto){
 
         MovieEntity entity = new MovieEntity();
@@ -74,11 +74,12 @@ public class MovieMapper {
         entity.setRating(dto.getRating());
         entity.setGenreId(dto.getGenreId());
 
-//        List<CharacterEntity> characters = characterMapper.characterDTOList2EntityList(dto.getCharacters());
-//        entity.setCharacters(characters);
+        List<CharacterEntity> characters = characterMapper.characterDTOList2EntityList(dto.getCharacters());
+        entity.setCharacters(characters);
 
         return entity;
     }
+
 
     private LocalDate string2LocalDate(String date) {
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
