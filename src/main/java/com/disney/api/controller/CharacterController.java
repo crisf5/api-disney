@@ -53,7 +53,7 @@ public class CharacterController {
         return ResponseEntity.ok().body(characterDetails);
     }
 
-    @GetMapping("/characters")
+    @GetMapping("/filters")
     public ResponseEntity<List<CharacterDTO>> getCharactersByFilters(
             @RequestParam (required = false) String name,
             @RequestParam (required = false) Integer age,
