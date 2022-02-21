@@ -54,7 +54,7 @@ public class MovieController {
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
-    @GetMapping("/movies")
+    @GetMapping("/filters")
     public ResponseEntity<List<MovieDTO>> getMoviesByFilters(
             @RequestParam (required = false) String title,
             @RequestParam (required = false) Long genreId,

@@ -2,5 +2,7 @@ package com.disney.api.exception;
 
 public class ParamNotFound extends RuntimeException{
 
-    public ParamNotFound(String error) {super (error);}
+    public ParamNotFound(String nameEntity, String param) {
+        super ("Error, " + nameEntity  + " " + param + " is not found.");
+    }
 }

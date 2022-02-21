@@ -33,14 +33,14 @@ public class MovieSpecification {
             String orderByAsc = "creatAt";
             query.orderBy(
                     filtersDto.isAsc() ?
-                            criteriaBuilder.asc(root.get(orderByAsc)):
+                            criteriaBuilder.asc(root.get(orderByAsc)) :
                             criteriaBuilder.desc(root.get(orderByAsc))
             );
 
             String orderByDesc = "creatAt";
             query.orderBy(
                     filtersDto.isDesc() ?
-                            criteriaBuilder.desc(root.get(orderByDesc)):
+                            criteriaBuilder.desc(root.get(orderByDesc)) :
                             criteriaBuilder.asc(root.get(orderByDesc))
             );
 
