@@ -52,18 +52,44 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- jwt -->
+
+<!--		&lt;!&ndash; https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security &ndash;&gt;-->
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-starter-security</artifactId>-->
+<!--			<version>2.6.3</version>-->
+<!--		</dependency>-->
+
+
+		<!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt -->
 <!--		<dependency>-->
 <!--			<groupId>io.jsonwebtoken</groupId>-->
 <!--			<artifactId>jjwt</artifactId>-->
 <!--			<version>0.9.1</version>-->
 <!--		</dependency>-->
 
-     <!-- spring security -->
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.boot</groupId>-->
-<!--			<artifactId>spring-boot-starter-security</artifactId>-->
-<!--		</dependency>-->
+
+		<!-- https://mvnrepository.com/artifact/com.sendgrid/sendgrid-java -->
+		<dependency>
+			<groupId>com.sendgrid</groupId>
+			<artifactId>sendgrid-java</artifactId>
+			<version>4.8.3</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.sendgrid/java-http-client -->
+		<dependency>
+			<groupId>com.sendgrid</groupId>
+			<artifactId>java-http-client</artifactId>
+			<version>4.4.0</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.sendgrid/smtpapi-java -->
+		<dependency>
+			<groupId>com.sendgrid</groupId>
+			<artifactId>smtpapi-java</artifactId>
+			<version>1.2.10</version>
+		</dependency>
+
 
 	</dependencies>
 

@@ -49,7 +49,7 @@ public class CharacterServiceImpl implements CharacterService {
 
         Optional<CharacterEntity> entity = characterRepository.findById(id);
         if(!entity.isPresent()){
-            throw new ParamNotFound("Character", "ID");
+            throw new ParamNotFound("ID");
         }
         characterMapper.characterEntityRefreshValues(entity.get(), dto);
         CharacterEntity entitySaved = characterRepository.save(entity.get());
@@ -61,7 +61,7 @@ public class CharacterServiceImpl implements CharacterService {
     public void delete(Long id){
         Optional<CharacterEntity> entity = characterRepository.findById(id);
         if(!entity.isPresent()){
-            throw new ParamNotFound("Character", "ID");
+            throw new ParamNotFound("ID");
         }
         characterRepository.deleteById(id);
     }
@@ -70,7 +70,7 @@ public class CharacterServiceImpl implements CharacterService {
     public CharacterDTO findCharacterById(Long id) {
         Optional<CharacterEntity> entity = characterRepository.findById(id);
         if(!entity.isPresent()){
-            throw new ParamNotFound("Character", "ID");
+            throw new ParamNotFound("ID");
         }
         CharacterDTO result = characterMapper.characterEntity2DTO(entity.get(), true);
         return result;
