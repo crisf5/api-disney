@@ -30,19 +30,19 @@ public class UserAuthController {
 
     @Autowired
     public UserAuthController(UserDetailsCustomService userDetailsService, AuthenticationManager authenticationManager, JwtUtils jwtTokenUtil) {
-        userDetailsService = userDetailsService;
-        authenticationManager = authenticationManager;
-        jwtTokenUtil = jwtTokenUtil;
+        this.userDetailsService = userDetailsService;
+        this.authenticationManager = authenticationManager;
+        this.jwtTokenUtil = jwtTokenUtil;
     }
 
-    @PostMapping("/signup")
+    @PostMapping("/register")
     public ResponseEntity<AuthenticationResponse> register(@Valid @RequestBody UserDTO user) throws Exception {
 
         userDetailsService.createUser(user);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
-    @PostMapping("/signin")
+    @PostMapping("/login")
     public ResponseEntity<AuthenticationResponse> login(@RequestBody AuthenticationRequest authRequest) throws Exception {
 
         UserDetails userDetails;
