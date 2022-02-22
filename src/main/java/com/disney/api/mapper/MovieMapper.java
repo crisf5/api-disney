@@ -1,5 +1,6 @@
 package com.disney.api.mapper;
 
+import com.disney.api.utils.StringCustomUtil;
 import com.disney.api.dto.CharacterDTO;
 import com.disney.api.dto.MovieBasicDTO;
 import com.disney.api.dto.MovieDTO;
@@ -8,8 +9,6 @@ import com.disney.api.entity.MovieEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +17,9 @@ public class MovieMapper {
 
     @Autowired
     private CharacterMapper characterMapper;
+
+    @Autowired
+    private StringCustomUtil stringCustomUtil;
 
     public List<MovieDTO> movieEntityList2DTOList(List<MovieEntity> entities, boolean loadCharacters){
 
@@ -64,13 +66,12 @@ public class MovieMapper {
         return dtos;
     }
 
-    // TODO: 15/02/2022 Probando, Revisar Create!
     public MovieEntity movieDTO2Entity(MovieDTO dto){
 
         MovieEntity entity = new MovieEntity();
         entity.setImage(dto.getImage());
         entity.setTitle(dto.getTitle());
-        entity.setCreatAt(string2LocalDate(dto.getCreatAt()));
+        entity.setCreatAt(stringCustomUtil.string2LocalDate(dto.getCreatAt()));
         entity.setRating(dto.getRating());
         entity.setGenreId(dto.getGenreId());
 
@@ -81,16 +82,11 @@ public class MovieMapper {
     }
 
 
-    private LocalDate string2LocalDate(String date) {
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        return LocalDate.parse(date, dateTimeFormatter);
-    }
-
     public void movieEntityRefreshValues(MovieEntity entity, MovieDTO dto) {
 
         entity.setImage(dto.getImage());
         entity.setTitle(dto.getTitle());
-        entity.setCreatAt(string2LocalDate(dto.getCreatAt()));
+        entity.setCreatAt(stringCustomUtil.string2LocalDate(dto.getCreatAt()));
         entity.setRating(dto.getRating());
         entity.setGenreId(dto.getGenreId());
     }

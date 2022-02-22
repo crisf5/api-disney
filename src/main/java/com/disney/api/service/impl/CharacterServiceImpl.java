@@ -49,7 +49,7 @@ public class CharacterServiceImpl implements CharacterService {
 
         Optional<CharacterEntity> entity = characterRepository.findById(id);
         if(!entity.isPresent()){
-            throw new ParamNotFound("Character ID is not Found.");
+            throw new ParamNotFound("ID");
         }
         characterMapper.characterEntityRefreshValues(entity.get(), dto);
         CharacterEntity entitySaved = characterRepository.save(entity.get());
@@ -61,7 +61,7 @@ public class CharacterServiceImpl implements CharacterService {
     public void delete(Long id){
         Optional<CharacterEntity> entity = characterRepository.findById(id);
         if(!entity.isPresent()){
-            throw new ParamNotFound("Character ID is not Found.");
+            throw new ParamNotFound("ID");
         }
         characterRepository.deleteById(id);
     }
@@ -70,16 +70,16 @@ public class CharacterServiceImpl implements CharacterService {
     public CharacterDTO findCharacterById(Long id) {
         Optional<CharacterEntity> entity = characterRepository.findById(id);
         if(!entity.isPresent()){
-            throw new ParamNotFound("Character ID is not Found.");
+            throw new ParamNotFound("ID");
         }
         CharacterDTO result = characterMapper.characterEntity2DTO(entity.get(), true);
         return result;
     }
 
     @Override
-    public List<CharacterDTO> findCharactersByFilters(String name, Integer age, List<Long> movies) {
+    public List<CharacterDTO> findCharactersByFilters(String name, Integer age, Integer weight, List<Long> movies) {
 
-        CharacterFiltersDTO characterDTO = new CharacterFiltersDTO(name, age, movies);
+        CharacterFiltersDTO characterDTO = new CharacterFiltersDTO(name, age,weight, movies);
         List<CharacterEntity> entities = characterRepository.findAll(characterSpecification.getByFilters(characterDTO));
         List<CharacterDTO> result = characterMapper.characterEntityList2DTOList(entities, true);
         return result;

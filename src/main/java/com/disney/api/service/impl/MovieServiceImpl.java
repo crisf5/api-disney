@@ -41,7 +41,7 @@ public class MovieServiceImpl implements MovieService {
 
         Optional<MovieEntity> entity = movieRepository.findById(id);
         if(!entity.isPresent()){
-            throw new ParamNotFound("Movie ID is not Found.");
+            throw new ParamNotFound("ID");
         }
         MovieDTO result = movieMapper.movieEntity2DTO(entity.get(), true);
         return result;
@@ -61,7 +61,7 @@ public class MovieServiceImpl implements MovieService {
 
         Optional<MovieEntity> entity = movieRepository.findById(id);
         if(!entity.isPresent()){
-            throw new ParamNotFound("Movie ID is not Found.");
+            throw new ParamNotFound("ID");
         }
         movieMapper.movieEntityRefreshValues(entity.get(), movieDTO);
         MovieEntity entitySaved = movieRepository.save(entity.get());
@@ -73,14 +73,14 @@ public class MovieServiceImpl implements MovieService {
     public void delete(Long id) {
         Optional<MovieEntity> entity = movieRepository.findById(id);
         if(!entity.isPresent()){
-            throw new ParamNotFound("Movie ID is not Found.");
+            throw new ParamNotFound("ID");
         }
         movieRepository.delete(entity.get());
     }
 
     @Override
     public List<MovieDTO> findMoviesByFilters(String title, Long genreId, String order) {
-
+        if (order == null){order = "ASC";}
         MovieFiltersDTO movieFiltersDTO = new MovieFiltersDTO(title, genreId, order);
         List<MovieEntity> entities = movieRepository.findAll(movieSpecification.getByFilters(movieFiltersDTO));
         List<MovieDTO> result = movieMapper.movieEntityList2DTOList(entities, true);

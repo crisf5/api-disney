@@ -13,5 +13,6 @@ public class CharacterFiltersDTO {
 
     private String name;
     private Integer age;
+    private Integer weight;
     private List<Long> idMovies;
 }
