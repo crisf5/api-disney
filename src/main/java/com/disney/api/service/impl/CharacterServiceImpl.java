@@ -77,9 +77,9 @@ public class CharacterServiceImpl implements CharacterService {
     }
 
     @Override
-    public List<CharacterDTO> findCharactersByFilters(String name, Integer age, List<Long> movies) {
+    public List<CharacterDTO> findCharactersByFilters(String name, Integer age, Integer weight, List<Long> movies) {
 
-        CharacterFiltersDTO characterDTO = new CharacterFiltersDTO(name, age, movies);
+        CharacterFiltersDTO characterDTO = new CharacterFiltersDTO(name, age,weight, movies);
         List<CharacterEntity> entities = characterRepository.findAll(characterSpecification.getByFilters(characterDTO));
         List<CharacterDTO> result = characterMapper.characterEntityList2DTOList(entities, true);
         return result;

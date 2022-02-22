@@ -57,9 +57,10 @@ public class CharacterController {
     public ResponseEntity<List<CharacterDTO>> getCharactersByFilters(
             @RequestParam (required = false) String name,
             @RequestParam (required = false) Integer age,
+            @RequestParam (required = false) Integer weight,
             @RequestParam (required = false) List<Long> movies
     ){
-        List<CharacterDTO> characterFilters = characterService.findCharactersByFilters(name, age, movies);
+        List<CharacterDTO> characterFilters = characterService.findCharactersByFilters(name, age, weight, movies);
         return ResponseEntity.ok(characterFilters);
     }
 
