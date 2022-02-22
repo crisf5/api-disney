@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +21,7 @@ public class MovieDTO {
     @Min(1) @Max(5)
     private Integer rating;
 
+    @NotNull
     private Long genreId;
 
     private List<CharacterDTO> characters = new ArrayList<>();

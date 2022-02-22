@@ -3,9 +3,11 @@ package com.disney.api.service.impl;
 import com.disney.api.dto.MovieBasicDTO;
 import com.disney.api.dto.MovieDTO;
 import com.disney.api.dto.MovieFiltersDTO;
+import com.disney.api.entity.GenreEntity;
 import com.disney.api.entity.MovieEntity;
 import com.disney.api.exception.ParamNotFound;
 import com.disney.api.mapper.MovieMapper;
+import com.disney.api.repository.GenreRepository;
 import com.disney.api.repository.MovieRepository;
 import com.disney.api.repository.specification.MovieSpecification;
 import com.disney.api.service.MovieService;
@@ -23,6 +25,9 @@ public class MovieServiceImpl implements MovieService {
 
     @Autowired
     private MovieMapper movieMapper;
+
+    @Autowired
+    private GenreRepository genreRepository;
 
     @Autowired MovieSpecification movieSpecification;
 
@@ -49,6 +54,11 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     public MovieDTO create(MovieDTO movieDTO) {
+
+        Optional<GenreEntity> genre = genreRepository.findById(movieDTO.getGenreId());
+        if (!genre.isPresent()){
+            throw new ParamNotFound("Genre");
+        }
 
         MovieEntity entity = movieMapper.movieDTO2Entity(movieDTO);
         MovieEntity entitySaved = movieRepository.save(entity);
