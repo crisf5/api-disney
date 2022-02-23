@@ -24,7 +24,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
     protected ResponseEntity<Object> HandleThrowable(RuntimeException ex, WebRequest request) {
 
         ApiErrorDTO errorDTO = new ApiErrorDTO(
-                HttpStatus.NOT_FOUND,
+                HttpStatus.BAD_REQUEST,
                 ex.getMessage(),
                 Arrays.asList("")
         );
