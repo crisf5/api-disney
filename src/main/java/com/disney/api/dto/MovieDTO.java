@@ -19,7 +19,7 @@ public class MovieDTO {
     @Size(min = 2, max = 50)
     private String title;
 
-    @Pattern(regexp = "^\\d{4}-\\d{2}-\\d{2}$")
+    @Pattern(regexp = "^\\d{4}-\\d{2}-\\d{2}$", message = "El formato de la fecha debe ser yyyy/MM/dd")
     private String creatAt;
 
     @Min(1) @Max(5)
