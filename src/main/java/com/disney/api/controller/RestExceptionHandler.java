@@ -20,6 +20,18 @@ import java.util.List;
 @ControllerAdvice
 public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 
+    @ExceptionHandler(value = {Throwable.class})
+    protected ResponseEntity<Object> HandleThrowable(RuntimeException ex, WebRequest request) {
+
+        ApiErrorDTO errorDTO = new ApiErrorDTO(
+                HttpStatus.NOT_FOUND,
+                ex.getMessage(),
+                Arrays.asList("")
+        );
+        return handleExceptionInternal(ex, errorDTO, new HttpHeaders(), errorDTO.getStatus(), request);
+    }
+
+
     @ExceptionHandler(value = {ParamNotFound.class})
     protected ResponseEntity<Object> HandleParamNotFound(RuntimeException ex, WebRequest request) {
 
