@@ -19,9 +19,14 @@ public class CharacterController {
     private CharacterService characterService;
 
     @GetMapping
-    public ResponseEntity<List<CharacterBasicDTO>> getCharacterBasicList(){
+    public ResponseEntity<List<CharacterBasicDTO>> getCharactersBasicByFilters(
+            @RequestParam (required = false) String name,
+            @RequestParam (required = false) Integer age,
+            @RequestParam (required = false) Integer weight,
+            @RequestParam (required = false) List<Long> movies
+    ){
 
-        List<CharacterBasicDTO> characterBasicDTOS = characterService.getCharactersBasic();
+        List<CharacterBasicDTO> characterBasicDTOS = characterService.findCharactersBasicByFilters(name, age, weight, movies);
         return ResponseEntity.ok(characterBasicDTOS);
     }
 
@@ -53,7 +58,7 @@ public class CharacterController {
         return ResponseEntity.ok().body(characterDetails);
     }
 
-    @GetMapping("/filters")
+    @GetMapping("/all-details")
     public ResponseEntity<List<CharacterDTO>> getCharactersByFilters(
             @RequestParam (required = false) String name,
             @RequestParam (required = false) Integer age,

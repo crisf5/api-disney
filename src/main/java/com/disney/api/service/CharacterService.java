@@ -19,4 +19,6 @@ public interface CharacterService {
 
     List<CharacterDTO> findCharactersByFilters(String name, Integer age, Integer weight, List<Long> movies);
 
+    List<CharacterBasicDTO> findCharactersBasicByFilters(String name, Integer age, Integer weight, List<Long> movies);
+
 }
