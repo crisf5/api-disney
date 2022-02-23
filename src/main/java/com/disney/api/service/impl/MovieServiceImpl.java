@@ -97,5 +97,14 @@ public class MovieServiceImpl implements MovieService {
         return result;
     }
 
+    @Override
+    public List<MovieBasicDTO> findMoviesBasicByFilters(String title, Long genreId, String order) {
+        if (order == null){order = "ASC";}
+        MovieFiltersDTO movieFiltersDTO = new MovieFiltersDTO(title, genreId, order);
+        List<MovieEntity> entities = movieRepository.findAll(movieSpecification.getByFilters(movieFiltersDTO));
+        List<MovieBasicDTO> result = movieMapper.movieEntityList2DTOBasicList(entities);
+        return result;
+    }
+
 
 }

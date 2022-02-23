@@ -19,9 +19,13 @@ public class MovieController {
     private MovieService movieService;
 
     @GetMapping
-    public ResponseEntity<List<MovieBasicDTO>> getMovieBasicList(){
+    public ResponseEntity<List<MovieBasicDTO>> getMovieSBasicByFilters(
+            @RequestParam (required = false) String title,
+            @RequestParam (required = false) Long genreId,
+            @RequestParam (required = false) String order
+    ){
 
-        List<MovieBasicDTO> movieBasicDTOS = movieService.getMoviesBasic();
+        List<MovieBasicDTO> movieBasicDTOS = movieService.findMoviesBasicByFilters(title, genreId, order);
         return ResponseEntity.ok(movieBasicDTOS);
     }
 
@@ -53,7 +57,7 @@ public class MovieController {
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
-    @GetMapping("/filters")
+    @GetMapping("/all-details")
     public ResponseEntity<List<MovieDTO>> getMoviesByFilters(
             @RequestParam (required = false) String title,
             @RequestParam (required = false) Long genreId,

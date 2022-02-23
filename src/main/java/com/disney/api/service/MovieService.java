@@ -20,6 +20,7 @@ public interface MovieService {
 
     List<MovieDTO> findMoviesByFilters(String title, Long genreId, String order);
 
+    List<MovieBasicDTO> findMoviesBasicByFilters(String title, Long genreId, String order);
 
 }
 
