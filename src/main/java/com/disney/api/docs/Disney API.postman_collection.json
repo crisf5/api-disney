@@ -1,0 +1,530 @@
+{
+	"info": {
+		"_postman_id": "536a99d4-a29c-448e-b94c-1ed26c00b11b",
+		"name": "Disney API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Permisos",
+			"item": [
+				{
+					"name": "Registro",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"username\": \"disneyalkjava@gmail.com\",\r\n    \"password\": \"12345678\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/auth/register",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"username\": \"disneyalkjava@gmail.com\",\r\n    \"password\": \"12345678\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/auth/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Generos",
+			"item": [
+				{
+					"name": "Crear genero",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaXNuZXlhbGtqYXZhQGdtYWlsLmNvbSIsImV4cCI6MTY0NTY5MDE4NywiaWF0IjoxNjQ1NjU0MTg3fQ.z3QUXKapSKYLaTR644cyLxpZqs2n3OrKVZQYqeoTZBw",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"name\" : \"Family\",\r\n    \"image\" : \"family.jpg\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/genres",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"genres"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Personajes",
+			"item": [
+				{
+					"name": "Crear personaje",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaXNuZXlhbGtqYXZhQGdtYWlsLmNvbSIsImV4cCI6MTY0NTY2MTU2MSwiaWF0IjoxNjQ1NjI1NTYxfQ.V19TPwv4dO7f-86zQ5B5_PpnSIqDIp6iYwQWUHFPQCI",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"image\": \"nemo.jpg\",\r\n    \"name\" : \"Nemo\",\r\n    \"age\" : 4,\r\n    \"weight\" : 1,\r\n    \"history\" : \"Pececito payaso que vive en el fondo del mar.\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/characters",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"characters"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lista basica de personajes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaXNuZXlhbGtqYXZhQGdtYWlsLmNvbSIsImV4cCI6MTY0NTY2MTEyNiwiaWF0IjoxNjQ1NjI1MTI2fQ.fwFuy2nGGy-S4oJoWjng_JHBpXB2SfRw6YWckVnTet0",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/characters",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"characters"
+							],
+							"query": [
+								{
+									"key": "movies",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "Nemo",
+									"disabled": true
+								},
+								{
+									"key": "age",
+									"value": "4",
+									"disabled": true
+								},
+								{
+									"key": "weight",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Lista basica"
+					},
+					"response": []
+				},
+				{
+					"name": "Editar personaje",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaXNuZXlhbGtqYXZhQGdtYWlsLmNvbSIsImV4cCI6MTY0NTY5MDE4NywiaWF0IjoxNjQ1NjU0MTg3fQ.z3QUXKapSKYLaTR644cyLxpZqs2n3OrKVZQYqeoTZBw",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"image\": \"doris.jpg\",\r\n    \"name\" : \"Doris\",\r\n    \"age\" : 24,\r\n    \"weight\" : 6,\r\n    \"history\" : \"No recuerda mucho.\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/characters/9",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"characters",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar personaje (soft)",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaXNuZXlhbGtqYXZhQGdtYWlsLmNvbSIsImV4cCI6MTY0NTY5MDE4NywiaWF0IjoxNjQ1NjU0MTg3fQ.z3QUXKapSKYLaTR644cyLxpZqs2n3OrKVZQYqeoTZBw",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/characters/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"characters",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Detalle de personaje",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaXNuZXlhbGtqYXZhQGdtYWlsLmNvbSIsImV4cCI6MTY0NTY5MDE4NywiaWF0IjoxNjQ1NjU0MTg3fQ.z3QUXKapSKYLaTR644cyLxpZqs2n3OrKVZQYqeoTZBw",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/characters/6",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"characters",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lista de personajes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaXNuZXlhbGtqYXZhQGdtYWlsLmNvbSIsImV4cCI6MTY0NTY2MTEyNiwiaWF0IjoxNjQ1NjI1MTI2fQ.fwFuy2nGGy-S4oJoWjng_JHBpXB2SfRw6YWckVnTet0",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/characters/list-all",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"characters",
+								"list-all"
+							],
+							"query": [
+								{
+									"key": "movies",
+									"value": "10",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "Nemo",
+									"disabled": true
+								},
+								{
+									"key": "age",
+									"value": "24",
+									"disabled": true
+								},
+								{
+									"key": "weight",
+									"value": "15",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Métodos para Personajes"
+		},
+		{
+			"name": "Peliculas",
+			"item": [
+				{
+					"name": "Crear pelicula",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaXNuZXlhbGtqYXZhQGdtYWlsLmNvbSIsImV4cCI6MTY0NTY2MTU2MSwiaWF0IjoxNjQ1NjI1NTYxfQ.V19TPwv4dO7f-86zQ5B5_PpnSIqDIp6iYwQWUHFPQCI",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"image\" : \"buscandoNemo.jpg\",\r\n    \"title\" : \"buscando_a_nemo\",\r\n    \"creatAt\" : \"2003-06-03\",\r\n    \"rating\" : 4,\r\n    \"genreId\" : 2\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/movies",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lista basica de peliculas",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaXNuZXlhbGtqYXZhQGdtYWlsLmNvbSIsImV4cCI6MTY0NTY4NzE1MiwiaWF0IjoxNjQ1NjUxMTUyfQ.qB2CdfQ1jkcViQwZ4TkEOI22u_9nsVJuJqSxPI1vhX0",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/movies",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies"
+							],
+							"query": [
+								{
+									"key": "genreId",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "order",
+									"value": "DESC",
+									"disabled": true
+								},
+								{
+									"key": "title",
+									"value": "buscando_a_nemo",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar pelicula",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaXNuZXlhbGtqYXZhQGdtYWlsLmNvbSIsImV4cCI6MTY0NTY5MDE4NywiaWF0IjoxNjQ1NjU0MTg3fQ.z3QUXKapSKYLaTR644cyLxpZqs2n3OrKVZQYqeoTZBw",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"image\" : \"liloStich.jpg\",\r\n    \"title\" : \"Lilo_Stich\",\r\n    \"creatAt\" : \"2003-04-10\",\r\n    \"rating\" : 4,\r\n    \"genreId\" : 2\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/movies/14",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies",
+								"14"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar pelicula (soft)",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaXNuZXlhbGtqYXZhQGdtYWlsLmNvbSIsImV4cCI6MTY0NTY5MDE4NywiaWF0IjoxNjQ1NjU0MTg3fQ.z3QUXKapSKYLaTR644cyLxpZqs2n3OrKVZQYqeoTZBw",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/movies/14",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies",
+								"14"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Detalle de pelicula",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaXNuZXlhbGtqYXZhQGdtYWlsLmNvbSIsImV4cCI6MTY0NTY5MDE4NywiaWF0IjoxNjQ1NjU0MTg3fQ.z3QUXKapSKYLaTR644cyLxpZqs2n3OrKVZQYqeoTZBw",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/movies/11",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lista de peliculas",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaXNuZXlhbGtqYXZhQGdtYWlsLmNvbSIsImV4cCI6MTY0NTY5MDE4NywiaWF0IjoxNjQ1NjU0MTg3fQ.z3QUXKapSKYLaTR644cyLxpZqs2n3OrKVZQYqeoTZBw",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/movies/list-all",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies",
+								"list-all"
+							],
+							"query": [
+								{
+									"key": "genreId",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "order",
+									"value": "ASC",
+									"disabled": true
+								},
+								{
+									"key": "title",
+									"value": "buscando_a_nemo",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

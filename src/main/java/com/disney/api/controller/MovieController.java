@@ -57,7 +57,7 @@ public class MovieController {
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
-    @GetMapping("/all-details")
+    @GetMapping("/list-all")
     public ResponseEntity<List<MovieDTO>> getMoviesByFilters(
             @RequestParam (required = false) String title,
             @RequestParam (required = false) Long genreId,
@@ -67,5 +67,4 @@ public class MovieController {
         return ResponseEntity.ok(movieDTOS);
     }
 
-    
 }
