@@ -1,5 +1,6 @@
 package com.disney.api.auth.service;
 
+import com.disney.api.auth.config.SecurityConfiguration;
 import com.disney.api.auth.dto.AuthenticationRequest;
 import com.disney.api.auth.dto.UserDTO;
 import com.disney.api.auth.entity.UserEntity;
@@ -31,6 +32,8 @@ public class UserDetailsCustomService implements UserDetailsService {
     @Autowired
     private AuthenticationManager authenticationManager;
 
+    @Autowired
+    private SecurityConfiguration securityConfiguration;
 
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
@@ -46,7 +49,7 @@ public class UserDetailsCustomService implements UserDetailsService {
 
         UserEntity userEntity = new UserEntity();
         userEntity.setUsername(userDTO.getUsername());
-        userEntity.setPassword(userDTO.getPassword());
+        userEntity.setPassword(securityConfiguration.passwordEncoder().encode(userDTO.getPassword()));
         userEntity = userRepository.save(userEntity);
 
         if (userEntity != null) {
