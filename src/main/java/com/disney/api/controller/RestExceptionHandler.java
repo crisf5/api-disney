@@ -26,7 +26,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
         ApiErrorDTO errorDTO = new ApiErrorDTO(
                 HttpStatus.BAD_REQUEST,
                 ex.getMessage(),
-                Arrays.asList("")
+                Arrays.asList()
         );
         return handleExceptionInternal(ex, errorDTO, new HttpHeaders(), errorDTO.getStatus(), request);
     }

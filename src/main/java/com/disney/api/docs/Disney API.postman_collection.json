@@ -1,7 +1,8 @@
 {
 	"info": {
-		"_postman_id": "536a99d4-a29c-448e-b94c-1ed26c00b11b",
+		"_postman_id": "88e30f02-d139-4483-b44e-0a71d2bd62d3",
 		"name": "Disney API",
+		"description": "API con manejo de Personajes y Peliculas del Mundo Disney!",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -15,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\r\n    \"username\": \"disneyalkjava@gmail.com\",\r\n    \"password\": \"12345678\"\r\n\r\n}",
+							"raw": "{\r\n\r\n    \"username\": \"\",\r\n    \"password\": \"\"\r\n\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -43,7 +44,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\r\n    \"username\": \"disneyalkjava@gmail.com\",\r\n    \"password\": \"12345678\"\r\n\r\n}",
+							"raw": "{\r\n\r\n    \"username\": \"\",\r\n    \"password\": \"\"\r\n\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -60,7 +61,8 @@
 								"auth",
 								"login"
 							]
-						}
+						},
+						"description": "Guardar el token response para usarlo en los headers Authorization y poder utilizar lo demas."
 					},
 					"response": []
 				}
@@ -76,8 +78,8 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaXNuZXlhbGtqYXZhQGdtYWlsLmNvbSIsImV4cCI6MTY0NTY5MDE4NywiaWF0IjoxNjQ1NjU0MTg3fQ.z3QUXKapSKYLaTR644cyLxpZqs2n3OrKVZQYqeoTZBw",
-								"type": "default"
+								"value": "Bearer ",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -102,7 +104,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"description": "Es necesario crear generos desde acá o directamente en la base de datos, para poder crear peliculas sin problemas de falta de genero"
 		},
 		{
 			"name": "Personajes",
@@ -114,13 +117,13 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaXNuZXlhbGtqYXZhQGdtYWlsLmNvbSIsImV4cCI6MTY0NTY2MTU2MSwiaWF0IjoxNjQ1NjI1NTYxfQ.V19TPwv4dO7f-86zQ5B5_PpnSIqDIp6iYwQWUHFPQCI",
-								"type": "default"
+								"value": "Bearer",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\r\n    \"image\": \"nemo.jpg\",\r\n    \"name\" : \"Nemo\",\r\n    \"age\" : 4,\r\n    \"weight\" : 1,\r\n    \"history\" : \"Pececito payaso que vive en el fondo del mar.\"\r\n\r\n}",
+							"raw": "{\r\n\r\n    \"image\": \"nemo.jpg\",\r\n    \"name\" : \"Nemo\",\r\n    \"age\" : 4,\r\n    \"weight\" : 1,\r\n    \"history\" : \"Pececito payaso que vive en el fondo del mar.\"\r\n\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -147,7 +150,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaXNuZXlhbGtqYXZhQGdtYWlsLmNvbSIsImV4cCI6MTY0NTY2MTEyNiwiaWF0IjoxNjQ1NjI1MTI2fQ.fwFuy2nGGy-S4oJoWjng_JHBpXB2SfRw6YWckVnTet0",
+								"value": "Bearer ",
 								"type": "default"
 							}
 						],
@@ -163,7 +166,7 @@
 							"query": [
 								{
 									"key": "movies",
-									"value": null,
+									"value": "",
 									"disabled": true
 								},
 								{
@@ -183,7 +186,7 @@
 								}
 							]
 						},
-						"description": "Lista basica"
+						"description": "Lista de detalles basicos con posibilidad de utilizar filtros"
 					},
 					"response": []
 				},
@@ -194,7 +197,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaXNuZXlhbGtqYXZhQGdtYWlsLmNvbSIsImV4cCI6MTY0NTY5MDE4NywiaWF0IjoxNjQ1NjU0MTg3fQ.z3QUXKapSKYLaTR644cyLxpZqs2n3OrKVZQYqeoTZBw",
+								"value": "Bearer ",
 								"type": "default"
 							}
 						],
@@ -228,7 +231,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaXNuZXlhbGtqYXZhQGdtYWlsLmNvbSIsImV4cCI6MTY0NTY5MDE4NywiaWF0IjoxNjQ1NjU0MTg3fQ.z3QUXKapSKYLaTR644cyLxpZqs2n3OrKVZQYqeoTZBw",
+								"value": "Bearer ",
 								"type": "default"
 							}
 						],
@@ -253,7 +256,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaXNuZXlhbGtqYXZhQGdtYWlsLmNvbSIsImV4cCI6MTY0NTY5MDE4NywiaWF0IjoxNjQ1NjU0MTg3fQ.z3QUXKapSKYLaTR644cyLxpZqs2n3OrKVZQYqeoTZBw",
+								"value": "Bearer ",
 								"type": "default"
 							}
 						],
@@ -278,7 +281,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaXNuZXlhbGtqYXZhQGdtYWlsLmNvbSIsImV4cCI6MTY0NTY2MTEyNiwiaWF0IjoxNjQ1NjI1MTI2fQ.fwFuy2nGGy-S4oJoWjng_JHBpXB2SfRw6YWckVnTet0",
+								"value": "Bearer ",
 								"type": "default"
 							}
 						],
@@ -314,12 +317,12 @@
 									"disabled": true
 								}
 							]
-						}
+						},
+						"description": "Lista con todos los detalles y posibilidad de utilizar filtros"
 					},
 					"response": []
 				}
-			],
-			"description": "Métodos para Personajes"
+			]
 		},
 		{
 			"name": "Peliculas",
@@ -331,13 +334,13 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaXNuZXlhbGtqYXZhQGdtYWlsLmNvbSIsImV4cCI6MTY0NTY2MTU2MSwiaWF0IjoxNjQ1NjI1NTYxfQ.V19TPwv4dO7f-86zQ5B5_PpnSIqDIp6iYwQWUHFPQCI",
+								"value": "Bearer ",
 								"type": "default"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\r\n    \"image\" : \"buscandoNemo.jpg\",\r\n    \"title\" : \"buscando_a_nemo\",\r\n    \"creatAt\" : \"2003-06-03\",\r\n    \"rating\" : 4,\r\n    \"genreId\" : 2\r\n\r\n}",
+							"raw": "{\r\n\r\n    \"image\" : \"buscandoNemo.jpg\",\r\n    \"title\" : \"Buscando_a_Nemo\",\r\n    \"creatAt\" : \"2003-06-03\",\r\n    \"rating\" : 4,\r\n    \"genreId\" : 2,\r\n    \"characters\" : []\r\n\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -353,7 +356,8 @@
 							"path": [
 								"movies"
 							]
-						}
+						},
+						"description": "Al crear Peliculas tambien esta la posibilidad de crear personajes relacionados.\n\nRecordar tener previamente disponible el genero."
 					},
 					"response": []
 				},
@@ -364,7 +368,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaXNuZXlhbGtqYXZhQGdtYWlsLmNvbSIsImV4cCI6MTY0NTY4NzE1MiwiaWF0IjoxNjQ1NjUxMTUyfQ.qB2CdfQ1jkcViQwZ4TkEOI22u_9nsVJuJqSxPI1vhX0",
+								"value": "Bearer ",
 								"type": "default"
 							}
 						],
@@ -380,7 +384,7 @@
 							"query": [
 								{
 									"key": "genreId",
-									"value": null,
+									"value": "",
 									"disabled": true
 								},
 								{
@@ -394,7 +398,8 @@
 									"disabled": true
 								}
 							]
-						}
+						},
+						"description": "Lista de detalles basicos con posibilidad de utilizar filtros"
 					},
 					"response": []
 				},
@@ -405,13 +410,13 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaXNuZXlhbGtqYXZhQGdtYWlsLmNvbSIsImV4cCI6MTY0NTY5MDE4NywiaWF0IjoxNjQ1NjU0MTg3fQ.z3QUXKapSKYLaTR644cyLxpZqs2n3OrKVZQYqeoTZBw",
+								"value": "Bearer ",
 								"type": "default"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\r\n    \"image\" : \"liloStich.jpg\",\r\n    \"title\" : \"Lilo_Stich\",\r\n    \"creatAt\" : \"2003-04-10\",\r\n    \"rating\" : 4,\r\n    \"genreId\" : 2\r\n\r\n}",
+							"raw": "{\r\n    \"image\": \"liloStich.jpg\",\r\n    \"title\": \"Lilo_y_Stich\",\r\n    \"creatAt\": \"2002-05-12\",\r\n    \"rating\": 4,\r\n    \"genreId\": 2\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -419,16 +424,17 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/movies/14",
+							"raw": "localhost:8080/movies/8",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
 								"movies",
-								"14"
+								"8"
 							]
-						}
+						},
+						"description": "Al editar la pelicula, los personajes que estan relacionados quedan sin cambios.\n\nNo se puede agregar personajes desde aca."
 					},
 					"response": []
 				},
@@ -439,7 +445,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaXNuZXlhbGtqYXZhQGdtYWlsLmNvbSIsImV4cCI6MTY0NTY5MDE4NywiaWF0IjoxNjQ1NjU0MTg3fQ.z3QUXKapSKYLaTR644cyLxpZqs2n3OrKVZQYqeoTZBw",
+								"value": "Bearer ",
 								"type": "default"
 							}
 						],
@@ -464,7 +470,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaXNuZXlhbGtqYXZhQGdtYWlsLmNvbSIsImV4cCI6MTY0NTY5MDE4NywiaWF0IjoxNjQ1NjU0MTg3fQ.z3QUXKapSKYLaTR644cyLxpZqs2n3OrKVZQYqeoTZBw",
+								"value": "Bearer ",
 								"type": "default"
 							}
 						],
@@ -489,7 +495,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaXNuZXlhbGtqYXZhQGdtYWlsLmNvbSIsImV4cCI6MTY0NTY5MDE4NywiaWF0IjoxNjQ1NjU0MTg3fQ.z3QUXKapSKYLaTR644cyLxpZqs2n3OrKVZQYqeoTZBw",
+								"value": "Bearer ",
 								"type": "default"
 							}
 						],
@@ -520,7 +526,8 @@
 									"disabled": true
 								}
 							]
-						}
+						},
+						"description": "Lista con todos los detalles y posibilidad de utilizar filtros"
 					},
 					"response": []
 				}
