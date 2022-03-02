@@ -60,7 +60,7 @@ public class EmailServiceImpl implements EmailService {
             log.info("{}",response.getHeaders());
 
         } catch (IOException ex) {
-            log.info("Error trying to send email");
+            log.error("Error trying to send email");
         }
 
     }
