@@ -1,7 +1,9 @@
 package com.disney.api.controller;
 
 import com.disney.api.dto.ApiErrorDTO;
+import com.disney.api.exception.IncorrectLogin;
 import com.disney.api.exception.ParamNotFound;
+import com.disney.api.exception.UserExist;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,6 +33,27 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
         return handleExceptionInternal(ex, errorDTO, new HttpHeaders(), errorDTO.getStatus(), request);
     }
 
+    @ExceptionHandler(value = {UserExist.class})
+    protected ResponseEntity<Object> HandleUserExist(RuntimeException ex, WebRequest request) {
+
+        ApiErrorDTO errorDTO = new ApiErrorDTO(
+                HttpStatus.BAD_REQUEST,
+                ex.getMessage(),
+                Arrays.asList("User already exists")
+        );
+        return handleExceptionInternal(ex, errorDTO, new HttpHeaders(), errorDTO.getStatus(), request);
+    }
+
+    @ExceptionHandler(value = {IncorrectLogin.class})
+    protected ResponseEntity<Object> HandleIncorrectLogin(RuntimeException ex, WebRequest request) {
+
+        ApiErrorDTO errorDTO = new ApiErrorDTO(
+                HttpStatus.BAD_REQUEST,
+                ex.getMessage(),
+                Arrays.asList("Incorrect Login")
+        );
+        return handleExceptionInternal(ex, errorDTO, new HttpHeaders(), errorDTO.getStatus(), request);
+    }
 
     @ExceptionHandler(value = {ParamNotFound.class})
     protected ResponseEntity<Object> HandleParamNotFound(RuntimeException ex, WebRequest request) {

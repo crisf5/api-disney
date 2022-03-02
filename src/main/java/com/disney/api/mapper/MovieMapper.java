@@ -18,8 +18,6 @@ public class MovieMapper {
     @Autowired
     private CharacterMapper characterMapper;
 
-    @Autowired
-    private StringCustomUtil stringCustomUtil;
 
     public List<MovieDTO> movieEntityList2DTOList(List<MovieEntity> entities, boolean loadCharacters){
 
@@ -71,7 +69,7 @@ public class MovieMapper {
         MovieEntity entity = new MovieEntity();
         entity.setImage(dto.getImage());
         entity.setTitle(dto.getTitle());
-        entity.setCreatAt(stringCustomUtil.string2LocalDate(dto.getCreatAt()));
+        entity.setCreatAt(StringCustomUtil.string2LocalDate(dto.getCreatAt()));
         entity.setRating(dto.getRating());
         entity.setGenreId(dto.getGenreId());
 
@@ -86,7 +84,7 @@ public class MovieMapper {
 
         entity.setImage(dto.getImage());
         entity.setTitle(dto.getTitle());
-        entity.setCreatAt(stringCustomUtil.string2LocalDate(dto.getCreatAt()));
+        entity.setCreatAt(StringCustomUtil.string2LocalDate(dto.getCreatAt()));
         entity.setRating(dto.getRating());
         entity.setGenreId(dto.getGenreId());
     }

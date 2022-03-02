@@ -5,6 +5,8 @@ import com.disney.api.auth.dto.AuthenticationResponse;
 import com.disney.api.auth.dto.UserDTO;
 import com.disney.api.auth.service.JwtUtils;
 import com.disney.api.auth.service.UserDetailsCustomService;
+import com.disney.api.exception.IncorrectLogin;
+import com.disney.api.exception.UserExist;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -37,14 +39,14 @@ public class UserAuthController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<AuthenticationResponse> register(@Valid @RequestBody UserDTO user) {
+    public ResponseEntity<AuthenticationResponse> register(@Valid @RequestBody UserDTO user) throws RuntimeException {
 
         userDetailsService.createUser(user);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
     @PostMapping("/login")
-    public ResponseEntity<AuthenticationResponse> login(@RequestBody AuthenticationRequest authRequest) throws Exception {
+    public ResponseEntity<AuthenticationResponse> login(@RequestBody AuthenticationRequest authRequest) throws RuntimeException {
 
         UserDetails userDetails;
 
@@ -54,7 +56,7 @@ public class UserAuthController {
             );
             userDetails = (UserDetails) auth.getPrincipal();
         } catch (BadCredentialsException e) {
-            throw new Exception("Incorrect username or password", e);
+            throw new IncorrectLogin();
         }
 
         final String jwt = jwtTokenUtil.generateToken(userDetails);

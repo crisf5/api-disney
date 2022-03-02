@@ -6,9 +6,9 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 @Service
-public class StringCustomUtil {
+public final class StringCustomUtil {
 
-    public LocalDate string2LocalDate(String date) {
+    public static LocalDate string2LocalDate(String date) {
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         return LocalDate.parse(date, dateTimeFormatter);
     }

@@ -4,6 +4,7 @@ import com.disney.api.auth.config.SecurityConfiguration;
 import com.disney.api.auth.dto.UserDTO;
 import com.disney.api.auth.entity.UserEntity;
 import com.disney.api.auth.repository.UserRepository;
+import com.disney.api.exception.UserExist;
 import com.disney.api.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -43,7 +44,11 @@ public class UserDetailsCustomService implements UserDetailsService {
         return new User(userEntity.getUsername(), userEntity.getPassword(), Collections.emptyList());
     }
 
-    public boolean createUser(UserDTO userDTO)  {
+    public boolean createUser(UserDTO userDTO) throws UserExist {
+
+        if (userRepository.findByUsername(userDTO.getUsername()) != null){
+            throw new UserExist();
+        }
 
         UserEntity userEntity = new UserEntity();
         userEntity.setUsername(userDTO.getUsername());

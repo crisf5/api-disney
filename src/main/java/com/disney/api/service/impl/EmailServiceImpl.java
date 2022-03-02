@@ -8,6 +8,8 @@ import com.sendgrid.SendGrid;
 import com.sendgrid.helpers.mail.Mail;
 import com.sendgrid.helpers.mail.objects.Content;
 import com.sendgrid.helpers.mail.objects.Email;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
@@ -26,6 +28,8 @@ public class EmailServiceImpl implements EmailService {
 
     @Value("${disney.api.email.enabled}")
     private boolean enabled;
+
+    private static final Logger log = LoggerFactory.getLogger(EmailServiceImpl.class);
 
     @Override
     public void SendWelcomeEmailTo(String to) {
@@ -51,12 +55,12 @@ public class EmailServiceImpl implements EmailService {
             request.setBody(mail.build());
             Response response = sg.api(request);
 
-            System.out.println(response.getStatusCode());
-            System.out.println(response.getBody());
-            System.out.println(response.getHeaders());
+            log.info("{}",response.getStatusCode());
+            log.info("{}",response.getBody());
+            log.info("{}",response.getHeaders());
 
         } catch (IOException ex) {
-            System.out.println("Error trying to send email");
+            log.info("Error trying to send email");
         }
 
     }
